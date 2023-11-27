@@ -4,23 +4,10 @@ import json
 import tokens
 from vk import VKAPIClient
 from ya import YaDiscAPIClient
-from urllib.parse import urlencode
 
 access_token = tokens.vk_access_token
 YA_TOKEN = tokens.ya_token
-user_id = '17'
-
-# APP_ID = '51795204'
-# OAUTH_BASE_URL = 'https://oauth.vk.com/authorize'
-# params = {
-#     'client_id': APP_ID,
-#     'display': 'page',
-#     'redirect_uri': 'https://oauth.vk.com/blank.html',
-#     'scope': 'status,photos',
-#     'response_type': 'token'
-# }
-# oauth_url = f'{OAUTH_BASE_URL}?{urlencode(params)}'
-# print(oauth_url)
+user_id = tokens.user_id
 
 
 # Define a function to backup photos from VK to Yandex Disk.
@@ -84,17 +71,4 @@ def backup_photos_from_vk(number_ph: int):
 if __name__ == '__main__':
     backup_photos_from_vk(20)
 
-    # # VKclient = VKAPIClient(access_token, user_id)
-    # # print(VKclient.get_albums())
 
-    # for i in range(1000):
-    #     try:
-    #         VKclient = VKAPIClient(access_token, i)
-    #         albums = VKclient.get_albums()
-    #         if len(albums)> 0:
-    #             f = open('result_scanning.txt', 'a')
-    #             f.write(', '.join(str(x) for x in albums) + '\n')
-    #             f.write(str(i) + '\n')
-    #             f.close()
-    #     except Exception as ex:
-    #         pass
